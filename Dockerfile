@@ -8,7 +8,7 @@ LABEL maintainer="saitcho@outlook.com"
 ENV STEAMAPPID 2394010
 ENV STEAMAPP palworld
 ENV STEAMAPPDIR "/data/${STEAMAPP}-dedicated"
-ENV DLURL https://raw.githubusercontent.com/dkirby-ms/game_servers
+ENV DLURL https://raw.githubusercontent.com/dkirby-ms/palworld
 
 RUN set -x \
 	# Install, update & upgrade packages
@@ -19,7 +19,7 @@ RUN set -x \
 		iputils-ping=3:20210202-1 \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	# Add entry script
-	&& wget --max-redirect=30 "${DLURL}/master/palworld/scripts/entry.sh" -O "${HOMEDIR}/entry.sh" \
+	&& wget --max-redirect=30 "${DLURL}/master/scripts/entry.sh" -O "${HOMEDIR}/entry.sh" \
 	&& chmod +x "${HOMEDIR}/entry.sh" \
 	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${STEAMAPPDIR}" \
 	# Clean up
