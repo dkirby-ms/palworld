@@ -1,7 +1,7 @@
 ###########################################################
 # Dockerfile that builds a Palworld Gameserver
 ###########################################################
-FROM cm2network/steamcmd:root
+FROM cm2network/steamcmd
 
 LABEL maintainer="saitcho@outlook.com"
 

@@ -37,7 +37,9 @@ spec:
             cpu: "1000m"
             memory: "4G"
       securityContext:
-        fsGroup: 1000 
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       volumes:
         - name: palworld-data
           hostPath:
