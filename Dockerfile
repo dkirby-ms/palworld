@@ -12,11 +12,6 @@ ENV DLURL https://raw.githubusercontent.com/dkirby-ms/palworld
 
 RUN set -x \
 	# Install, update & upgrade packages
-	&& apt-get update \
-	&& apt-get install -y --no-install-recommends --no-install-suggests \
-		wget=1.21-1+deb11u1 \
-		ca-certificates=20210119 \
-		iputils-ping=3:20210202-1 \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	# Add entry script
 	&& wget --max-redirect=30 "${DLURL}/master/scripts/entry.sh" -O "${STEAMAPPDIR}/entry.sh" \
