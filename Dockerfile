@@ -20,8 +20,8 @@ RUN set -x \
 	&& mkdir -p "${STEAMAPPDIR}" \
 	# Add entry script
 	&& wget --max-redirect=30 "${DLURL}/master/scripts/entry.sh" -O "${HOMEDIR}/entry.sh" \
-	&& chmod +x "${HOMEDIR}/entry.sh" \
-	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${STEAMAPPDIR}" \
+	&& chmod +x "${STEAMAPPDIR}/entry.sh" \
+	&& chown -R "${USER}:${USER}" "${STEAMAPPDIR}/entry.sh" "${STEAMAPPDIR}" \
 	# Clean up
 	&& rm -rf /var/lib/apt/lists/*
 
@@ -38,7 +38,7 @@ ENV STEAMCMD_UPDATE_ARGS="" \
 # Switch to user
 USER ${USER}
 
-WORKDIR ${HOMEDIR}
+WORKDIR ${STEAMAPPDIR}
 
 CMD ["bash", "entry.sh"] 
 
