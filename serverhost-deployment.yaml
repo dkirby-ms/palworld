@@ -23,9 +23,9 @@ spec:
         app: palworld-server
     spec:
       containers:
-      - image: cm2network/steamcmd:latest
+      - image: ghcr.io/dkirby-ms/palworld:master
         name: palworld-server
-        command: ["/bin/sh", "-c", "/data/launch_server.sh"]
+        command: ["/bin/bash", "./entry.sh"]
         volumeMounts:
         - name: palworld-data
           mountPath: /data
@@ -53,5 +53,5 @@ spec:
     app: palworld-server
   ports:
   - protocol: UDP
-    port: 8211
-    targetPort: 8211
+    port: 14159
+    targetPort: 14159

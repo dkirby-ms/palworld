@@ -7,7 +7,7 @@ LABEL maintainer="saitcho@outlook.com"
 
 ENV STEAMAPPID 2394010
 ENV STEAMAPP palworld
-ENV STEAMAPPDIR "/data/${STEAMAPP}-dedicated"
+ENV STEAMAPPDIR "/data"
 ENV DLURL https://raw.githubusercontent.com/dkirby-ms/palworld
 
 RUN set -x \
