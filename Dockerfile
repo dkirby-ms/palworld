@@ -7,7 +7,7 @@ LABEL maintainer="saitcho@outlook.com"
 
 ENV STEAMAPPID 2394010
 ENV STEAMAPP palworld
-ENV STEAMAPPDIR "/home/steam/palworld"
+ENV STEAMAPPDIR "palworld"
 ENV DLURL https://raw.githubusercontent.com/dkirby-ms/palworld
 
 RUN set -x \
@@ -17,11 +17,11 @@ RUN set -x \
 		wget=1.21-1+deb11u1 \
 		ca-certificates=20210119 \
 		iputils-ping=3:20210202-1 \
-	# && mkdir -p "${STEAMAPPDIR}" \
+	&& mkdir -p "${STEAMAPPDIR}" \
 	# Add entry script
 	&& wget --max-redirect=30 "${DLURL}/master/scripts/entry.sh" -O "${STEAMAPPDIR}/entry.sh" \
 	&& chmod +x "${STEAMAPPDIR}/entry.sh" \
-	#&& chown -R "${USER}:${USER}" "${STEAMAPPDIR}/entry.sh" "${STEAMAPPDIR}" \
+	&& chown -R "${USER}:${USER}" "${STEAMAPPDIR}/entry.sh" "${STEAMAPPDIR}" \
 	# Clean up
 	&& rm -rf /var/lib/apt/lists/*
 
@@ -40,7 +40,7 @@ USER ${USER}
 
 WORKDIR ${STEAMAPPDIR}
 
-CMD ["bash", "${STEAMAPPDIR}/entry.sh"] 
+CMD ["bash", "entry.sh"] 
 
 # Expose ports
 EXPOSE 14159/tcp \
