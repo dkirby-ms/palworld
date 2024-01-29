@@ -21,6 +21,7 @@ RUN set -x \
 	# Add entry script
 	&& wget --max-redirect=30 "${DLURL}/master/scripts/entry.sh" -O "${HOMEDIR}/entry.sh" \
 	&& chmod +x "${HOMEDIR}/entry.sh" \
+	&& chown -R "${USER}:${USER}" "${STEAMAPPDIR}" \
 	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${STEAMAPPDIR}" \
 	# Clean up
 	&& rm -rf /var/lib/apt/lists/*
