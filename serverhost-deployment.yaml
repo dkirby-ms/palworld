@@ -28,7 +28,7 @@ spec:
         command: ["/bin/bash", "./entry.sh"]
         volumeMounts:
         - name: palworld-data
-          mountPath: /data
+          mountPath: /home/steam/palworld
         resources:
           requests:
             cpu: "500m"

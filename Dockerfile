@@ -1,5 +1,5 @@
 ###########################################################
-# Dockerfile that builds a Mordhau Gameserver
+# Dockerfile that builds a Palworld Gameserver
 ###########################################################
 FROM cm2network/steamcmd:root
 
@@ -7,7 +7,7 @@ LABEL maintainer="saitcho@outlook.com"
 
 ENV STEAMAPPID 2394010
 ENV STEAMAPP palworld
-ENV STEAMAPPDIR "/data"
+ENV STEAMAPPDIR "/home/steam/palworld"
 ENV DLURL https://raw.githubusercontent.com/dkirby-ms/palworld
 
 RUN set -x \
@@ -21,7 +21,6 @@ RUN set -x \
 	# Add entry script
 	&& wget --max-redirect=30 "${DLURL}/master/scripts/entry.sh" -O "${HOMEDIR}/entry.sh" \
 	&& chmod +x "${HOMEDIR}/entry.sh" \
-	&& chown -R "${USER}:${USER}" "${STEAMAPPDIR}" \
 	&& chown -R "${USER}:${USER}" "${HOMEDIR}/entry.sh" "${STEAMAPPDIR}" \
 	# Clean up
 	&& rm -rf /var/lib/apt/lists/*
