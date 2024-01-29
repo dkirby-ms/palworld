@@ -40,7 +40,7 @@ USER ${USER}
 
 WORKDIR ${STEAMAPPDIR}
 
-CMD ["bash", "entry.sh"] 
+CMD ["bash", "${STEAMAPPDIR}/entry.sh"] 
 
 # Expose ports
 EXPOSE 14159/tcp \
