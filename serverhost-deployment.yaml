@@ -5,6 +5,24 @@ metadata:
   labels:
     name: palworld
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: palworld-pvc
+  namespace: palworld
+  labels:
+    app: palworld
+    owner: saitcho
+    name: palworld-volume
+spec:
+  storageClassName: "microk8s-hostpath"
+  volumeName: palworld-pv
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -25,10 +43,10 @@ spec:
       containers:
       - image: ghcr.io/dkirby-ms/palworld:master
         name: palworld-server
-        command: ["/bin/bash", "./entry.sh"]
+        command: ["/bin/bash", "/data/palworld/entry.sh"]
         volumeMounts:
         - name: palworld-data
-          mountPath: /home/steam/palworld
+          mountPath: /data/palworld
         resources:
           requests:
             cpu: "500m"
@@ -36,15 +54,10 @@ spec:
           limits:
             cpu: "1000m"
             memory: "4G"
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
       volumes:
         - name: palworld-data
-          hostPath:
-            path: /opt/palworld-data
-            type: Directory
+          persistentVolumeClaim:
+            claimName: palworld-pvc
 ---
 apiVersion: v1
 kind: Service

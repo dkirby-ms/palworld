@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: palworld-pv
+  labels:
+    app: palworld
+    owner: saitcho
+    name: palworld-volume
+spec:
+  storageClassName: microk8s-hostpath
+  # Exclusive to PVC
+  claimRef:
+    name: palworld-pvc
+    namespace: palworld
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/opt/palworld-data"
