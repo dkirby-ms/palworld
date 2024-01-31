@@ -43,7 +43,7 @@ spec:
       containers:
       - image: ghcr.io/dkirby-ms/palworld:master
         name: palworld-server
-        command: ["/bin/bash", "/data/palworld/entry.sh"]
+        command: ["/bin/bash", "entry.sh"]
         volumeMounts:
         - name: palworld-data
           mountPath: /data/palworld
