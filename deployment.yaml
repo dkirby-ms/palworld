@@ -70,5 +70,5 @@ spec:
     app: palworld-server
   ports:
   - protocol: UDP
-    port: 14159
-    targetPort: 14159
+    port: 8211
+    targetPort: 8211

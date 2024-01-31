@@ -37,5 +37,5 @@ WORKDIR "/home/${USER}"
 CMD ["bash", "entry.sh"] 
 
 # Expose ports
-EXPOSE 14159/tcp \
-	14159/udp
+EXPOSE 8211/tcp \
+	8211/udp
