@@ -31,7 +31,7 @@ ENV STEAMCMD_UPDATE_ARGS="" \
 # Switch to user
 USER ${USER}
 
-WORKDIR ${STEAMAPPDIR}
+WORKDIR "/home/${USER}"
 
 CMD ["bash", "entry.sh"] 
 
