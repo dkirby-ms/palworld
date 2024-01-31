@@ -20,9 +20,9 @@ RUN set -x \
 		iputils-ping=3:20210202-1 \
 	# Add entry script
 	&& mkdir -p "${STEAMAPPDIR}" \
-	&& wget --max-redirect=30 "${DLURL}/master/scripts/entry.sh" -O "entry.sh" \
-	&& chmod +x "entry.sh" \
-	&& chown -R "${USER}:${USER}" "entry.sh" "${STEAMAPPDIR}" \
+	&& wget --max-redirect=30 "${DLURL}/master/scripts/entry.sh" -O "/home/${USER}/entry.sh" \
+	&& chmod +x "/home/${USER}/entry.sh" \
+	&& chown -R "${USER}:${USER}" "/home/${USER}/entry.sh" "${STEAMAPPDIR}" \
 	# Clean up
 	&& rm -rf /var/lib/apt/lists/*
 
