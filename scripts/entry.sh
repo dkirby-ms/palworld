@@ -12,4 +12,4 @@ fi
 
 cd "${STEAMAPPDIR}"
 
-./Palworld.sh
+./PalServer.sh
