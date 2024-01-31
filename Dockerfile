@@ -18,11 +18,10 @@ RUN set -x \
 		wget=1.21-1+deb11u1 \
 		ca-certificates=20210119 \
 		iputils-ping=3:20210202-1 \
-	&& mkdir -p "${STEAMAPPDIR}" \
 	# Add entry script
-	&& wget --max-redirect=30 "${DLURL}/master/scripts/entry.sh" -O "${STEAMAPPDIR}/entry.sh" \
-	&& chmod +x "${STEAMAPPDIR}/entry.sh" \
-	&& chown -R "${USER}:${USER}" "${STEAMAPPDIR}/entry.sh" "${STEAMAPPDIR}" \
+	&& wget --max-redirect=30 "${DLURL}/master/scripts/entry.sh" -O "entry.sh" \
+	&& chmod +x "entry.sh" \
+	&& chown -R "${USER}:${USER}" "entry.sh" \
 	# Clean up
 	&& rm -rf /var/lib/apt/lists/*
 
@@ -34,7 +33,7 @@ USER ${USER}
 
 WORKDIR ${STEAMAPPDIR}
 
-CMD ["bash", "${STEAMAPPDIR}/entry.sh"] 
+CMD ["bash", "entry.sh"] 
 
 # Expose ports
 EXPOSE 14159/tcp \
