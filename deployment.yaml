@@ -52,8 +52,8 @@ spec:
             cpu: "500m"
             memory: "2G"
           limits:
-            cpu: "1000m"
-            memory: "4G"
+            cpu: "2000m"
+            memory: "8G"
       volumes:
         - name: palworld-data
           persistentVolumeClaim:
