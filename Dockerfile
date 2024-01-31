@@ -19,9 +19,10 @@ RUN set -x \
 		ca-certificates=20210119 \
 		iputils-ping=3:20210202-1 \
 	# Add entry script
+	&& mkdir "${STEAMAPPDIR}" \
 	&& wget --max-redirect=30 "${DLURL}/master/scripts/entry.sh" -O "entry.sh" \
 	&& chmod +x "entry.sh" \
-	&& chown -R "${USER}:${USER}" "entry.sh" \
+	&& chown -R "${USER}:${USER}" "entry.sh" "${STEAMAPPDIR}" \
 	# Clean up
 	&& rm -rf /var/lib/apt/lists/*
 
