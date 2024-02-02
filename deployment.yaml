@@ -21,7 +21,7 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 100Gi
+      storage: 1Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -44,6 +44,7 @@ spec:
       - image: ghcr.io/dkirby-ms/palworld:master
         name: palworld-server
         command: ["/bin/bash", "entry.sh"]
+        imagePullPolicy: Always
         volumeMounts:
         - name: palworld-data
           mountPath: /data/palworld

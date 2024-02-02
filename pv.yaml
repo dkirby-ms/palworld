@@ -8,10 +8,6 @@ metadata:
     name: palworld-volume
 spec:
   storageClassName: microk8s-hostpath
-  # Exclusive to PVC
-  claimRef:
-    name: palworld-pvc
-    namespace: palworld
   capacity:
     storage: 1Gi
   accessModes:
