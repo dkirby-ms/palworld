@@ -9,7 +9,9 @@ on:
   schedule:
     - cron: '18 0 * * *'
   push:
-    branches: [ "master" ]
+    branches: 
+      - master
+      - 'palworld/Dockerfile'
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
